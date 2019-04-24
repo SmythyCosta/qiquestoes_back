@@ -74,3 +74,9 @@
 	
 #### GET http://localhost:8080/api/lancamentos/1
 #### GET http://localhost:8080/api/lancamentos/funcionario/1?dir=ASC&pag=1
+
+#### POST http://localhost:8080/auth
+	{
+    	"email": "pf2@email.com",
+    	"senha": "123456"
+	}
