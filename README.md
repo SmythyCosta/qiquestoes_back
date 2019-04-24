@@ -3,6 +3,8 @@
 
 ## PontoInteligente Backend
 
+## Erros 
+
 ### Travis, Correcao de erros no arquivo. 
 	https://github.com/travis-ci/travis-ci/issues/6298
 
@@ -13,7 +15,14 @@
 		<artifactId>jackson-datatype-jdk8</artifactId>
 	</dependency>
 	
-### End-Points
+### Dependencia para Enums
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.6</version>
+	</dependency>
+	
+## End-Points
 
 #### POST http://localhost:8080/api/cadastrar-pj
 	{
@@ -36,3 +45,32 @@
 	}
 	
 #### GET http://localhost:8080/api/empresas/cnpj/1212121212
+
+#### PUT http://localhost:8080/api/funcionarios/2
+	{
+	    "nome": "user",
+	    "valorHora": "70",
+	    "qtdHorasTrabalhoDia": "8.5",   
+	    "email": "user@eamil.com"
+	}
+
+#### POST http://localhost:8080/api/lancamentos
+	{
+	    "data": "24-04-2019 01:06:00",
+	    "tipo": "INICIO_TRABALHO",
+	    "descricao": "INICIO de TRABALHO",   
+	    "localizacao": "1.12121.121212",
+	    "funcionarioId": "2",
+	}
+
+#### PUT http://localhost:8080/api/lancamentos/2
+	{
+	    "data": "24-04-2019 01:06:00",
+	    "tipo": "INICIO_TRABALHO",
+	    "descricao": "INICIO de TRABALHO",   
+	    "localizacao": "1.12121.121212",
+	    "funcionarioId": "2",
+	}
+	
+#### GET http://localhost:8080/api/lancamentos/1
+#### GET http://localhost:8080/api/lancamentos/funcionario/1?dir=ASC&pag=1

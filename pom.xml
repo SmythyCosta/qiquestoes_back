@@ -79,6 +79,13 @@
 			<artifactId>spring-security-test</artifactId>
 		</dependency>
 		
+		<!-- Dependencia para Enums -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.6</version>
+		</dependency>
+		
 	</dependencies> 
 	
 
