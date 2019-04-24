@@ -8,7 +8,7 @@
 ### Travis, Correcao de erros no arquivo. 
 	https://github.com/travis-ci/travis-ci/issues/6298
 
-### Erros com dados do yipo Optional
+### Erros com dados do tipo Optional
 	<!-- Correcao de Bug dados do tipo Optional  -->
 	<dependency>
 		<groupId>com.fasterxml.jackson.datatype</groupId>
