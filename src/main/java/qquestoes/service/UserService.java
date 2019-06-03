@@ -26,6 +26,22 @@ public interface UserService {
 	Optional<User> buscarPorId(Long id);
 	
 	/**
+	 * Retorna um user por Email.
+	 * 
+	 * @param id
+	 * @return Optional<user>
+	 */
+	Optional<User> buscarPorEmail(String email);
+	
+	/**
+	 * Retorna um user por Name.
+	 * 
+	 * @param id
+	 * @return Optional<user>
+	 */
+	Optional<User> buscarPorNome(String name);
+	
+	/**
 	 * Persiste um user na base de dados.
 	 * 
 	 * @param user

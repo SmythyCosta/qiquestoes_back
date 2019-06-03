@@ -45,4 +45,16 @@ public class UserServiceImpl implements UserService {
 		this.userRepository.delete(id);
 	}
 
+	@Override
+	public Optional<User> buscarPorEmail(String email) {
+		log.info("Buscando um User por o Email {}", email);
+		return Optional.ofNullable(userRepository.findByEmail(email));
+	}
+
+	@Override
+	public Optional<User> buscarPorNome(String name) {
+		log.info("Buscando um User por o Name {}", name);
+		return Optional.ofNullable(userRepository.findByName(name));
+	}
+
 }
