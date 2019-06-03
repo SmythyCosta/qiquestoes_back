@@ -1,4 +1,4 @@
-package qquestoes.persistence.dto;
+package qquestoes.dto;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;

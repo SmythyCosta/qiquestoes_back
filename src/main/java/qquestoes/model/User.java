@@ -1,4 +1,4 @@
-package qquestoes.persistence.model;
+package qquestoes.model;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import qquestoes.persistence.enums.RoleEnum;
+import qquestoes.enums.RoleEnum;
 
 @Entity
 @Table(name = "tbl_user", uniqueConstraints = {

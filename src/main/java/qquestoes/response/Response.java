@@ -1,4 +1,4 @@
-package qquestoes.persistence.response;
+package qquestoes.response;
 
 import java.util.ArrayList;
 import java.util.List;

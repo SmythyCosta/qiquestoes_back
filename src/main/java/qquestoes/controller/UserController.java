@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import qquestoes.persistence.model.User;
-import qquestoes.persistence.repository.UserRepository;
+import qquestoes.model.User;
+import qquestoes.repository.UserRepository;
 
 @RestController
 @RequestMapping(value="/api/users")
