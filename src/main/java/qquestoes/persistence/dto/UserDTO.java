@@ -4,9 +4,6 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
-
 public class UserDTO {
 	
 	
@@ -23,5 +20,46 @@ public class UserDTO {
 	
 	@NotEmpty(message = "role_user não pode ser vazio.")
 	private String role_user;
+	
+	public UserDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getRole_user() {
+		return role_user;
+	}
+
+	public void setRole_user(String role_user) {
+		this.role_user = role_user;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDTO [id=" + id + ", name=" + name + ", email=" + email + ", role_user=" + role_user + "]";
+	}
 
 }
