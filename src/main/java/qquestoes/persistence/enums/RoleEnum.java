@@ -1,4 +1,4 @@
-package qquestoes.enums;
+package qquestoes.persistence.enums;
 
 public enum RoleEnum {
 	

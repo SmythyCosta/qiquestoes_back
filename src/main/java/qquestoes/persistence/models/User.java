@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import qquestoes.enums.RoleEnum;
+import qquestoes.persistence.enums.RoleEnum;
 
 @Entity
 @Table(name = "tbl_user", uniqueConstraints = {
