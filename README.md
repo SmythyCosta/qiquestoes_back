@@ -10,3 +10,4 @@
 # User
 	
 GET http://localhost:8080/api/users?dir=ASC&pag=0
+GET http://localhost:8080/api/users/1
