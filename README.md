@@ -5,3 +5,8 @@
 	
 ## Swagger
 	http://localhost:8080/swagger-ui.html
+	
+
+# User
+	
+GET http://localhost:8080/api/users?dir=ASC&pag=0

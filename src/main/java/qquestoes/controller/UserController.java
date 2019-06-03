@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import qquestoes.dto.UserDTO;
 import qquestoes.model.User;
@@ -58,6 +59,28 @@ public class UserController {
 		Page<UserDTO> userDto = users.map(user -> this.converterUserOfDTO(user));
 
 		response.setData(userDto);
+		return ResponseEntity.ok(response);
+	}
+	
+	/**
+	 * Retorna um user por ID.
+	 * 
+	 * @param id
+	 * @return ResponseEntity<Response<UserDTO>>
+	 */
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<Response<UserDTO>> listarPorId(@PathVariable("id") Long id) {
+		log.info("Buscando lançamento por ID: {}", id);
+		Response<UserDTO> response = new Response<UserDTO>();
+		Optional<User> user = this.userService.buscarPorId(id);
+
+		if (!user.isPresent()) {
+			log.info("User não encontrado para o ID: {}", id);
+			response.getErrors().add("User não encontrado para o id " + id);
+			return ResponseEntity.badRequest().body(response);
+		}
+
+		response.setData(this.converterUserOfDTO(user.get()));
 		return ResponseEntity.ok(response);
 	}
 	
