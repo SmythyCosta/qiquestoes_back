@@ -3,11 +3,12 @@ package qquestoes.dto;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import java.util.Optional;
 
 public class UserDTO {
 	
 	
-	private Long id;
+	private Optional<Long> id = Optional.empty();
 	
 	@NotEmpty(message = "Nome não pode ser vazio.")
 	@Length(min = 3, max = 200, message = "Nome deve conter entre 3 e 200 caracteres.")
@@ -18,6 +19,10 @@ public class UserDTO {
 	@Email(message="Email inválido.")
 	private String email;
 	
+	@NotEmpty(message = "password não pode ser vazio.")
+	@Length(min = 5, max = 200, message = "password deve conter entre 5 e 200 caracteres.")
+	private String password;
+	
 	@NotEmpty(message = "role_user não pode ser vazio.")
 	private String role_user;
 	
@@ -25,11 +30,11 @@ public class UserDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long getId() {
+	public Optional<Long> getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Optional<Long> id) {
 		this.id = id;
 	}
 
@@ -49,6 +54,14 @@ public class UserDTO {
 		this.email = email;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getRole_user() {
 		return role_user;
 	}
@@ -59,7 +72,8 @@ public class UserDTO {
 
 	@Override
 	public String toString() {
-		return "UserDTO [id=" + id + ", name=" + name + ", email=" + email + ", role_user=" + role_user + "]";
+		return "UserDTO [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role_user="
+				+ role_user + "]";
 	}
 
 }

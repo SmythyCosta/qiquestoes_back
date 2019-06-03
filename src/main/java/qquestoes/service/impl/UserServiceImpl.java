@@ -7,11 +7,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import qquestoes.model.User;
 import qquestoes.repository.UserRepository;
 import qquestoes.service.UserService;
 
+@Service
 public class UserServiceImpl implements UserService {
 	
 	private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);

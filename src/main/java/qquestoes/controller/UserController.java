@@ -1,43 +1,85 @@
 package qquestoes.controller;
 
-import java.util.List;
+import java.util.Optional;
 
-import javax.validation.Valid;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import qquestoes.dto.UserDTO;
 import qquestoes.model.User;
-import qquestoes.repository.UserRepository;
+import qquestoes.response.Response;
+import qquestoes.service.UserService;
 
 @RestController
 @RequestMapping(value="/api/users")
+@CrossOrigin(origins = "*")
 public class UserController {	
 	
-	private UserRepository repository;
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 	
-	UserController(UserRepository userRepository) {
-       this.repository = userRepository;
-   }
 	
-	@GetMapping
-	public List findAll(){
-	   return repository.findAll();
-	}	
+	@Autowired
+	private UserService userService;
 	
-	@PostMapping
-	public User create(@RequestBody User user){
-	   return user;
+	@Value("${paginacao.qtd_por_pagina}")
+	private int qtdPorPagina;
+	
+	
+	/**
+	 * Retorna a listagem de user.
+	 * 
+	 * @param funcionarioId
+	 * @return ResponseEntity<Response<LancamentoDto>>
+	 */
+	@GetMapping()
+	public ResponseEntity<Response<Page<UserDTO>>> listAll(
+			@RequestParam(value = "pag", defaultValue = "0") int pag,
+			@RequestParam(value = "ord", defaultValue = "id") String ord,
+			@RequestParam(value = "dir", defaultValue = "DESC") String dir
+		) 
+	{
+		
+		log.info("Listando todos os users: {}, página: {}", pag);
+		Response<Page<UserDTO>> response = new Response<Page<UserDTO>>();
+
+		PageRequest pageRequest = new PageRequest(pag, this.qtdPorPagina, Direction.valueOf(dir), ord);
+		Page<User> users = this.userService.listarTodos(pageRequest);
+		Page<UserDTO> userDto = users.map(user -> this.converterUserOfDTO(user));
+
+		response.setData(userDto);
+		return ResponseEntity.ok(response);
 	}
+	
+	/**
+	 * Converte uma entidade User para seu respectivo DTO.
+	 * 
+	 * @param lancamento
+	 * @return LancamentoDto
+	 */
+	private UserDTO converterUserOfDTO(User user) {
+		
+		UserDTO userDTO = new UserDTO();
+		userDTO.setId(Optional.of(user.getId()));
+		userDTO.setName(user.getName());
+		userDTO.setEmail(user.getEmail());
+		userDTO.setPassword(user.getPassword());
+		userDTO.setRole_user(user.getRole_user().toString());
+
+		return userDTO;
+	}
+	
+	
 		
 	
 }
