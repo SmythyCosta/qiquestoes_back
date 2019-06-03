@@ -1,4 +1,4 @@
-package qquestoes.persistence.models;
+package qquestoes.persistence.model;
 
 import java.io.Serializable;
 

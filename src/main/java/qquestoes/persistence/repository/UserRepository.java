@@ -6,11 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import qquestoes.persistence.models.User;
+import qquestoes.persistence.model.User;
 
 
 public interface UserRepository extends JpaRepository<User, Long>{
-
-	Object findById(long id);
 
 }
