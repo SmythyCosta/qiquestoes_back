@@ -1,13 +1,12 @@
 package qquestoes.model;
 
 import java.io.Serializable;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,18 +29,11 @@ public class AreaFormacao implements Serializable {
 
 	@Column(name = "nome", nullable = false)
 	private String nome;
+	
+	@OneToMany(mappedBy = "areaFormacao", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Disciplina> disciplina;
 
-	@Column(name = "descricao", nullable = false)
-	private String descricao;
-
-	@OneToMany(mappedBy = "areaFormacao", cascade = CascadeType.ALL)
-	private Set<Disciplina> disciplina;
-
-	public AreaFormacao(String nome, String descricao, Disciplina disciplina) {
-		this.nome = nome;
-		this.descricao = descricao;
-		this.disciplina = Stream.of(disciplina).collect(Collectors.toSet());
-		this.disciplina.forEach(x -> x.setAreaFormacao(this));
+	public AreaFormacao() {
 	}
 
 	public Long getId() {
@@ -60,28 +52,12 @@ public class AreaFormacao implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public Set<Disciplina> getDisciplina() {
+	public List<Disciplina> getDisciplina() {
 		return disciplina;
 	}
 
-	public void setDisciplina(Set<Disciplina> disciplina) {
+	public void setDisciplina(List<Disciplina> disciplina) {
 		this.disciplina = disciplina;
 	}
-
-	@Override
-	public String toString() {
-		return "AreaFormacao [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", disciplina=" + disciplina
-				+ "]";
-	}
-	
-	
 
 }
