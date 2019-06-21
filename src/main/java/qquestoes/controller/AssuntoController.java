@@ -17,16 +17,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import qquestoes.model.AreaFormacao;
-import qquestoes.repository.AreaFormacaoRepository;
+import qquestoes.model.Assunto;
+import qquestoes.repository.AssuntoRepository;
 
 @RestController
-@RequestMapping(value = "/api/area-formacao")
+@RequestMapping(value = "/api/assunto")
 @CrossOrigin(origins = "*")
-public class AreaFormacaoController {
+public class AssuntoController {
 
 	@Autowired
-	private AreaFormacaoRepository r;
+	private AssuntoRepository r;
 
 	@GetMapping
 	public List findAll() {
@@ -35,17 +35,17 @@ public class AreaFormacaoController {
 	
 
 	@GetMapping(value = { "/{id}" })
-	public AreaFormacao findById(@PathVariable long id) {
+	public Assunto findById(@PathVariable long id) {
 		return r.findById(id);
 	}
 
 	@PostMapping
-	public AreaFormacao create(@RequestBody AreaFormacao obj) {
+	public Assunto create(@RequestBody Assunto obj) {
 		return r.save(obj);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public AreaFormacao atualiza(@RequestBody @Valid AreaFormacao obj) {
+	public Assunto atualiza(@RequestBody @Valid Assunto obj) {
 		return r.save(obj);
 	}
 	
