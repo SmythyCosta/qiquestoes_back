@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Jun-2019 às 18:33
+-- Generation Time: 22-Jun-2019 às 04:55
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -25,6 +25,78 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tbl_area_formacao`
+--
+
+CREATE TABLE `tbl_area_formacao` (
+  `id` bigint(20) NOT NULL,
+  `nome` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tbl_area_formacao`
+--
+
+INSERT INTO `tbl_area_formacao` (`id`, `nome`) VALUES
+(4, 'Administração'),
+(8, 'Design'),
+(14, 'Direito'),
+(1, 'Enfermagem'),
+(10, 'Matemática'),
+(12, 'Medicina'),
+(15, 'Tecnologia da Informação');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbl_assunto`
+--
+
+CREATE TABLE `tbl_assunto` (
+  `id` bigint(20) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `disciplina_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tbl_assunto`
+--
+
+INSERT INTO `tbl_assunto` (`id`, `nome`, `disciplina_id`) VALUES
+(1, 'Engenharia de requisitos', 6),
+(2, 'Uml', 6),
+(3, 'Swing', 4),
+(4, 'Jasper Report', 4),
+(5, 'JDBC', 4),
+(8, 'Servlet', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tbl_disciplina`
+--
+
+CREATE TABLE `tbl_disciplina` (
+  `id` bigint(20) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `area_formacao_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tbl_disciplina`
+--
+
+INSERT INTO `tbl_disciplina` (`id`, `nome`, `area_formacao_id`) VALUES
+(1, 'Algoritomos', 15),
+(2, 'Algoritomos 2', 15),
+(3, 'Lógica de Programação', 15),
+(4, 'Linguagem Java', 15),
+(6, 'Engenharia de Sotware', 15),
+(7, 'Usuabilidade Web', 8);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbl_user`
 --
 
@@ -41,8 +113,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `email`, `name`, `password`, `role_user`) VALUES
-(1, 'smythy.costa@gmail.com', 'Smythy costa', '123456', 'ADMIN'),
-(2, 'user1@email.com', 'User1', '123456', 'GUEST'),
+(1, 'smythy.costa@gmail.com', 'Smythy Carvalho cc', '12345678', 'ADMIN'),
 (3, 'user2email.com', 'user2 ', '123456', 'GUEST'),
 (4, 'user3email.com', 'user3', '123456', 'GUEST'),
 (5, 'user4email.com', 'user4', '123456', 'GUEST'),
@@ -132,11 +203,37 @@ INSERT INTO `tbl_user` (`id`, `email`, `name`, `password`, `role_user`) VALUES
 (89, 'user98email.com', 'user98', '123456', 'GUEST'),
 (90, 'user99email.com', 'user99', '123456', 'GUEST'),
 (91, 'user910email.com', 'user910', '123456', 'GUEST'),
-(92, 'user911email.com', 'user911', '123456', 'GUEST');
+(92, 'user911email.com', 'user911', '123456', 'GUEST'),
+(93, 'userr666ttt@email.com', 'Smythy Carvalho', '123456', 'ADMIN'),
+(94, 'userr666ttrrrrrt@email.com', 'Smythy Carvalho2', '123456', 'ADMIN'),
+(95, 'user6666666t@email.com', 'Joao baptista SUSU', '123456', 'GUEST');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tbl_area_formacao`
+--
+ALTER TABLE `tbl_area_formacao`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UKr1x0su38xw86urf8m4ypndvq1` (`nome`);
+
+--
+-- Indexes for table `tbl_assunto`
+--
+ALTER TABLE `tbl_assunto`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UK4av6m79ssj55sbafwxb2clv93` (`nome`),
+  ADD KEY `FKf3hj0c42qpcpa9k582y2ve0dr` (`disciplina_id`);
+
+--
+-- Indexes for table `tbl_disciplina`
+--
+ALTER TABLE `tbl_disciplina`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UKicxnjnneamyddnf63q468x0ux` (`nome`),
+  ADD KEY `FKcq9sr70l1vwjw8mex31wf5uub` (`area_formacao_id`);
 
 --
 -- Indexes for table `tbl_user`
@@ -150,10 +247,44 @@ ALTER TABLE `tbl_user`
 --
 
 --
+-- AUTO_INCREMENT for table `tbl_area_formacao`
+--
+ALTER TABLE `tbl_area_formacao`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `tbl_assunto`
+--
+ALTER TABLE `tbl_assunto`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tbl_disciplina`
+--
+ALTER TABLE `tbl_disciplina`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `tbl_assunto`
+--
+ALTER TABLE `tbl_assunto`
+  ADD CONSTRAINT `FKf3hj0c42qpcpa9k582y2ve0dr` FOREIGN KEY (`disciplina_id`) REFERENCES `tbl_disciplina` (`id`);
+
+--
+-- Limitadores para a tabela `tbl_disciplina`
+--
+ALTER TABLE `tbl_disciplina`
+  ADD CONSTRAINT `FKcq9sr70l1vwjw8mex31wf5uub` FOREIGN KEY (`area_formacao_id`) REFERENCES `tbl_area_formacao` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,7 +1,9 @@
 package qquestoes.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -29,7 +32,10 @@ public class Assunto implements Serializable {
 	private String nome;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Disciplina disciplina; 
+	private Disciplina disciplina;
+
+	@OneToMany(mappedBy = "assunto", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Pergunta> pergunta;
 
 	public Assunto() {
 		// TODO Auto-generated constructor stub
@@ -57,6 +63,14 @@ public class Assunto implements Serializable {
 
 	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
+	}
+
+	public List<Pergunta> getPergunta() {
+		return pergunta;
+	}
+
+	public void setPergunta(List<Pergunta> pergunta) {
+		this.pergunta = pergunta;
 	}
 
 }
