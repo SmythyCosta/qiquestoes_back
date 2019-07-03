@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @MappedSuperclass
-public abstract class BasePaiQuestoes<ID extends Serializable> implements Serializable{
+public abstract class BaseAFormacaoDisciplinaAssunto<ID extends Serializable> implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -24,7 +24,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tbl_disciplina", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
-public class Disciplina extends BasePaiQuestoes<Long> {
+public class Disciplina extends BaseAFormacaoDisciplinaAssunto<Long> {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private AreaFormacao areaFormacao;

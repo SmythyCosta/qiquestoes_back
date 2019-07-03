@@ -23,7 +23,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tbl_area_formacao", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
-public class AreaFormacao extends BasePaiQuestoes<Long> {
+public class AreaFormacao extends BaseAFormacaoDisciplinaAssunto<Long> {
 	
 	@OneToMany(mappedBy = "areaFormacao", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Disciplina> disciplina;

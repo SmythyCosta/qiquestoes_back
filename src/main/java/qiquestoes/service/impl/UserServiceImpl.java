@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void remover(Long id) {
-		log.info("Removendo o lançamento ID {}", id);
+		log.info("Removendo o User ID {}", id);
 		this.userRepository.delete(id);
 	}
 
