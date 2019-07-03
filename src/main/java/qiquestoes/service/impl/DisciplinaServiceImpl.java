@@ -12,28 +12,30 @@ import qiquestoes.repository.DisciplinaRepository;
 import qiquestoes.service.DisciplinaService;
 
 @Service
-public class DisciplinaServiceImpl implements DisciplinaService {
+public class DisciplinaServiceImpl  {
 	
-	@Autowired
-	private DisciplinaRepository r;
-
-	public Page<Disciplina> buscarPorAreaFormacaoId(Long areaFormacaoId, PageRequest pageRequest) {
-		return this.r.findByAreaFormacaoId(areaFormacaoId, pageRequest);
-	}
-
-	@Override
-	public Optional<Disciplina> buscarPorId(Long id) {
-		return Optional.ofNullable(this.r.findOne(id));
-	}
-
-	@Override
-	public Disciplina persistir(Disciplina disciplina) {
-		return this.r.save(disciplina);
-	}
-
-	@Override
-	public void remover(Long id) {
-		this.r.delete(id);
-	}
+	//implements DisciplinaService
+	
+//	@Autowired
+//	private DisciplinaRepository r;
+//
+//	public Page<Disciplina> buscarPorAreaFormacaoId(Long areaFormacaoId, PageRequest pageRequest) {
+//		return this.r.findByAreaFormacaoId(areaFormacaoId, pageRequest);
+//	}
+//
+//	@Override
+//	public Optional<Disciplina> buscarPorId(Long id) {
+//		return Optional.ofNullable(this.r.findOne(id));
+//	}
+//
+//	@Override
+//	public Disciplina persistir(Disciplina disciplina) {
+//		return this.r.save(disciplina);
+//	}
+//
+//	@Override
+//	public void remover(Long id) {
+//		this.r.delete(id);
+//	}
 
 }

@@ -8,7 +8,7 @@ import qiquestoes.model.User;
 
 public interface AreaFormacaoRepository extends JpaRepository<AreaFormacao, Long>{
 	
-	@Transactional(readOnly = true)
-	AreaFormacao findById(Long id);
+//	@Transactional(readOnly = true)
+//	AreaFormacao findById(Long id);
 
 }

@@ -25,34 +25,34 @@ import qiquestoes.repository.AreaFormacaoRepository;
 @CrossOrigin(origins = "*")
 public class AreaFormacaoController {
 
-	@Autowired
-	private AreaFormacaoRepository r;
-
-	@GetMapping
-	public List findAll() {
-		return r.findAll();
-	}
-	
-
-	@GetMapping(value = { "/{id}" })
-	public AreaFormacao findById(@PathVariable long id) {
-		return r.findById(id);
-	}
-
-	@PostMapping
-	public AreaFormacao create(@RequestBody AreaFormacao obj) {
-		return r.save(obj);
-	}
-	
-	@PutMapping(value = "/{id}")
-	public AreaFormacao atualiza(@RequestBody @Valid AreaFormacao obj) {
-		return r.save(obj);
-	}
-	
-	@DeleteMapping(value = "/{id}")
-	public void deletar(@PathVariable long id) {
-		r.delete(id);
-	}
+//	@Autowired
+//	private AreaFormacaoRepository r;
+//
+//	@GetMapping
+//	public List findAll() {
+//		return r.findAll();
+//	}
+//	
+//
+//	@GetMapping(value = { "/{id}" })
+//	public AreaFormacao findById(@PathVariable long id) {
+//		return r.findById(id);
+//	}
+//
+//	@PostMapping
+//	public AreaFormacao create(@RequestBody AreaFormacao obj) {
+//		return r.save(obj);
+//	}
+//	
+//	@PutMapping(value = "/{id}")
+//	public AreaFormacao atualiza(@RequestBody @Valid AreaFormacao obj) {
+//		return r.save(obj);
+//	}
+//	
+//	@DeleteMapping(value = "/{id}")
+//	public void deletar(@PathVariable long id) {
+//		r.delete(id);
+//	}
 
 	
 }
