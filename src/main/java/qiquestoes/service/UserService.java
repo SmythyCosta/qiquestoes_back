@@ -10,7 +10,7 @@ import qiquestoes.model.User;
 public interface UserService {
 	
 	/**
-	 * Retorna uma lista paginada de user.
+	 * Retorna uma lista paginada de User.
 	 * 
 	 * @param pageRequest
 	 * @return Page<user>
@@ -18,7 +18,7 @@ public interface UserService {
 	Page<User> listarTodos(PageRequest pageRequest);
 
 	/**
-	 * Retorna um user por ID.
+	 * Retorna um User por ID.
 	 * 
 	 * @param id
 	 * @return Optional<user>
@@ -26,7 +26,7 @@ public interface UserService {
 	Optional<User> buscarPorId(Long id);
 	
 	/**
-	 * Retorna um user por Email.
+	 * Retorna um User por Email.
 	 * 
 	 * @param id
 	 * @return Optional<user>
@@ -34,7 +34,7 @@ public interface UserService {
 	Optional<User> buscarPorEmail(String email);
 	
 	/**
-	 * Retorna um user por Name.
+	 * Retorna um User por Name.
 	 * 
 	 * @param id
 	 * @return Optional<user>
@@ -42,7 +42,7 @@ public interface UserService {
 	Optional<User> buscarPorNome(String name);
 	
 	/**
-	 * Persiste um user na base de dados.
+	 * Persiste um User na base de dados.
 	 * 
 	 * @param user
 	 * @return user
@@ -50,7 +50,7 @@ public interface UserService {
 	User persistir(User user);
 	
 	/**
-	 * Remove um lançamento da base de dados.
+	 * Remove um User da base de dados.
 	 * 
 	 * @param id
 	 */
