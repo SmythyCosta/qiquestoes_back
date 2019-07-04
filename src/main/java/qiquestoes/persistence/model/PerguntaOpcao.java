@@ -1,4 +1,4 @@
-package qiquestoes.model;
+package qiquestoes.persistence.model;
 
 import java.io.Serializable;
 

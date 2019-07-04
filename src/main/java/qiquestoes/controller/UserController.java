@@ -29,7 +29,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import qiquestoes.dto.UserDTO;
 import qiquestoes.enums.RoleEnum;
-import qiquestoes.model.User;
+import qiquestoes.persistence.model.User;
+import qiquestoes.repository.UsRepository;
 import qiquestoes.response.Response;
 import qiquestoes.service.UserService;
 
@@ -43,6 +44,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private UsRepository r;
 	
 	@Value("${paginacao.qtd_por_pagina}")
 	private int qtdPorPagina;
@@ -63,7 +67,10 @@ public class UserController {
 		Response<Page<UserDTO>> response = new Response<Page<UserDTO>>();
 
 		PageRequest pageRequest = new PageRequest(pag, this.qtdPorPagina, Direction.valueOf(dir), ord);
-		Page<User> users = this.userService.listarTodos(pageRequest);
+		
+		//Page<User> users = this.userService.listarTodos(pageRequest);
+		Page<User> users = this.r.findAll(pageRequest);
+		
 		Page<UserDTO> userDto = users.map(user -> this.converterUserOfDTO(user));
 
 		response.setData(userDto);
@@ -77,21 +84,21 @@ public class UserController {
 	 * @return ResponseEntity<Response<UserDTO>>
 	 */
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Response<UserDTO>> listarPorId(@PathVariable("id") Long id) {
-		
-		log.info("Buscando lançamento por ID: {}", id);
-		Response<UserDTO> response = new Response<UserDTO>();
-		Optional<User> user = this.userService.buscarPorId(id);
-
-		if (!user.isPresent()) {
-			log.info("User não encontrado para o ID: {}", id);
-			response.getErrors().add("User não encontrado para o id " + id);
-			return ResponseEntity.badRequest().body(response);
-		}
-
-		response.setData(this.converterUserOfDTO(user.get()));
-		return ResponseEntity.ok(response);
-	}
+//	public ResponseEntity<Response<UserDTO>> listarPorId(@PathVariable("id") Long id) {
+//		
+//		log.info("Buscando lançamento por ID: {}", id);
+//		Response<UserDTO> response = new Response<UserDTO>();
+//		Optional<User> user = this.userService.buscarPorId(id);
+//
+//		if (!user.isPresent()) {
+//			log.info("User não encontrado para o ID: {}", id);
+//			response.getErrors().add("User não encontrado para o id " + id);
+//			return ResponseEntity.badRequest().body(response);
+//		}
+//
+//		response.setData(this.converterUserOfDTO(user.get()));
+//		return ResponseEntity.ok(response);
+//	}
 	
 	/**
 	 * Cadastrar um user.
@@ -102,25 +109,25 @@ public class UserController {
 	 * @throws ParseException
 	 */
 	@PostMapping()
-	public ResponseEntity<Response<UserDTO>> cadastrar(@Valid @RequestBody UserDTO userDTO,
-														BindingResult result) throws ParseException {
-		
-		log.info("Cadastrando User: {}", userDTO.toString());
-		Response<UserDTO> response = new Response<UserDTO>();
-
-		validarDadosExistentes(userDTO, result);
-		User user = this.converterDtoOfUser(userDTO, result);
-
-		if (result.hasErrors()) {
-			log.error("Erro validando dados de cadastro User: {}", result.getAllErrors());
-			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
-			return ResponseEntity.badRequest().body(response);
-		}
-		
-		this.userService.persistir(user);
-		response.setData(this.converterUserOfDTO(user));
-		return ResponseEntity.ok(response);
-	}
+//	public ResponseEntity<Response<UserDTO>> cadastrar(@Valid @RequestBody UserDTO userDTO,
+//														BindingResult result) throws ParseException {
+//		
+//		log.info("Cadastrando User: {}", userDTO.toString());
+//		Response<UserDTO> response = new Response<UserDTO>();
+//
+//		validarDadosExistentes(userDTO, result);
+//		User user = this.converterDtoOfUser(userDTO, result);
+//
+//		if (result.hasErrors()) {
+//			log.error("Erro validando dados de cadastro User: {}", result.getAllErrors());
+//			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
+//			return ResponseEntity.badRequest().body(response);
+//		}
+//		
+//		this.userService.persistir(user);
+//		response.setData(this.converterUserOfDTO(user));
+//		return ResponseEntity.ok(response);
+//	}
 	
 	/**
 	 * Atualiza os dados de um user.
@@ -131,26 +138,26 @@ public class UserController {
 	 * @throws ParseException 
 	 */
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Response<UserDTO>> atualizar(@PathVariable("id") Long id,
-														@Valid @RequestBody UserDTO userDTO, 
-														BindingResult result) throws ParseException {
-		
-		log.info("Atualizando user: {}", userDTO.toString());
-		Response<UserDTO> response = new Response<UserDTO>();
-		userDTO.setId(Optional.of(id));
-		User user = this.converterDtoOfUser(userDTO, result);
-
-		if (result.hasErrors()) {
-			log.error("Erro validando user: {}", result.getAllErrors());
-			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
-			return ResponseEntity.badRequest().body(response);
-		}
-
-		user = this.userService.persistir(user);
-		response.setData(this.converterUserOfDTO(user));
-		return ResponseEntity.ok(response);
-	}
-	
+//	public ResponseEntity<Response<UserDTO>> atualizar(@PathVariable("id") Long id,
+//														@Valid @RequestBody UserDTO userDTO, 
+//														BindingResult result) throws ParseException {
+//		
+//		log.info("Atualizando user: {}", userDTO.toString());
+//		Response<UserDTO> response = new Response<UserDTO>();
+//		userDTO.setId(Optional.of(id));
+//		User user = this.converterDtoOfUser(userDTO, result);
+//
+//		if (result.hasErrors()) {
+//			log.error("Erro validando user: {}", result.getAllErrors());
+//			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
+//			return ResponseEntity.badRequest().body(response);
+//		}
+//
+//		user = this.userService.persistir(user);
+//		response.setData(this.converterUserOfDTO(user));
+//		return ResponseEntity.ok(response);
+//	}
+//	
 	/**
 	 * Remove um user.
 	 * 
@@ -158,21 +165,21 @@ public class UserController {
 	 * @return ResponseEntity<Response<user>>
 	 */
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Response<String>> remover(@PathVariable("id") Long id) {
-		
-		log.info("Removendo user: {}", id);
-		Response<String> response = new Response<String>();
-		Optional<User> user = this.userService.buscarPorId(id);
-
-		if (!user.isPresent()) {
-			log.info("Erro ao remover user ID: {} ser inválido.", id);
-			response.getErrors().add("Erro ao remover user. Registro não encontrado para o id " + id);
-			return ResponseEntity.badRequest().body(response);
-		}
-
-		this.userService.remover(id);
-		return ResponseEntity.ok(new Response<String>());
-	}
+//	public ResponseEntity<Response<String>> remover(@PathVariable("id") Long id) {
+//		
+//		log.info("Removendo user: {}", id);
+//		Response<String> response = new Response<String>();
+//		Optional<User> user = this.userService.buscarPorId(id);
+//
+//		if (!user.isPresent()) {
+//			log.info("Erro ao remover user ID: {} ser inválido.", id);
+//			response.getErrors().add("Erro ao remover user. Registro não encontrado para o id " + id);
+//			return ResponseEntity.badRequest().body(response);
+//		}
+//
+//		this.userService.remover(id);
+//		return ResponseEntity.ok(new Response<String>());
+//	}
 	
 	/**
 	 * Converte uma entidade User para seu respectivo DTO.

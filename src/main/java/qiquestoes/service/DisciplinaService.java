@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import qiquestoes.model.Disciplina;
+import qiquestoes.persistence.model.Disciplina;
 
 
 public interface DisciplinaService {

@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import qiquestoes.model.User;
+import qiquestoes.persistence.model.User;
 import qiquestoes.repository.UserRepository;
 import qiquestoes.service.UserService;
 

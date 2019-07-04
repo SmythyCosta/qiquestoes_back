@@ -1,4 +1,4 @@
-package qiquestoes.model;
+package qiquestoes.persistence.model;
 
 import java.util.List;
 
@@ -23,13 +23,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tbl_assunto", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
-public class Assunto extends BaseAFormacaoDisciplinaAssunto<Long> {
+@Table(name = "tbl_disciplina", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
+public class Disciplina extends BaseAFormacaoDisciplinaAssunto<Long> {
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Disciplina disciplina;
-
-	@OneToMany(mappedBy = "assunto", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Pergunta> pergunta;
+	private AreaFormacao areaFormacao;
+	
+	@OneToMany(mappedBy = "disciplina", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Assunto> assunto;
 
 }

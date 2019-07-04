@@ -1,10 +1,11 @@
-package qiquestoes.model;
+package qiquestoes.persistence.model;
 
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -22,10 +23,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tbl_area_formacao", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
-public class AreaFormacao extends BaseAFormacaoDisciplinaAssunto<Long> {
-	
-	@OneToMany(mappedBy = "areaFormacao", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Disciplina> disciplina;
+@Table(name = "tbl_assunto", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
+public class Assunto extends BaseAFormacaoDisciplinaAssunto<Long> {
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Disciplina disciplina;
+
+	@OneToMany(mappedBy = "assunto", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Pergunta> pergunta;
 
 }

@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import qiquestoes.model.Disciplina;
+import qiquestoes.persistence.model.Disciplina;
 import qiquestoes.repository.DisciplinaRepository;
 import qiquestoes.service.DisciplinaService;
 

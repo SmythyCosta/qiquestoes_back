@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import qiquestoes.model.Assunto;
+import qiquestoes.persistence.model.Assunto;
 
 public interface AssuntoService {
 
