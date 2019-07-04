@@ -1,17 +1,18 @@
-package qiquestoes.dto;
+package qiquestoes.persistence.dto;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 import java.util.Optional;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-public class AssuntoDto {
-
+public class DisciplinaDto {
+	
 	private Optional<Long> id = Optional.empty();
 	@NotEmpty(message = "nome não pode ser vazio.")
 	private String nome;
-	private Long disciplinaId;
-
-	public AssuntoDto() {
+	private Long areaFormacaoId;
+	
+	public DisciplinaDto() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -31,12 +32,14 @@ public class AssuntoDto {
 		this.nome = nome;
 	}
 
-	public Long getDisciplinaId() {
-		return disciplinaId;
+	public Long getAreaFormacaoId() {
+		return areaFormacaoId;
 	}
 
-	public void setDisciplinaId(Long disciplinaId) {
-		this.disciplinaId = disciplinaId;
+	public void setAreaFormacaoId(Long areaFormacaoId) {
+		this.areaFormacaoId = areaFormacaoId;
 	}
+	
+	
 
 }

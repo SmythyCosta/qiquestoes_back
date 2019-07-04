@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import qiquestoes.dto.UserDTO;
+import qiquestoes.persistence.dto.UserDTO;
 import qiquestoes.persistence.enums.RoleEnum;
 import qiquestoes.persistence.model.User;
 import qiquestoes.persistence.repository.UsRepository;

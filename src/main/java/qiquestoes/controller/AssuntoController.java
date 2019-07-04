@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import qiquestoes.dto.AssuntoDto;
+import qiquestoes.persistence.dto.AssuntoDto;
 import qiquestoes.persistence.model.Assunto;
 import qiquestoes.persistence.repository.AssuntoRepository;
 import qiquestoes.response.Response;
