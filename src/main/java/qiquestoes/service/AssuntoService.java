@@ -8,10 +8,10 @@ import org.springframework.data.domain.PageRequest;
 import qiquestoes.persistence.model.Assunto;
 
 public interface AssuntoService {
-
-	Page<Assunto> buscarPorDisciplinaId(Long disciplinaId, PageRequest pageRequest);
-	Optional<Assunto> buscarPorId(Long id);
-	Assunto persistir(Assunto assunto);
-	void remover(Long id);
-
+//
+//	Page<Assunto> buscarPorDisciplinaId(Long disciplinaId, PageRequest pageRequest);
+//	Optional<Assunto> buscarPorId(Long id);
+//	Assunto persistir(Assunto assunto);
+//	void remover(Long id);
+//
 }

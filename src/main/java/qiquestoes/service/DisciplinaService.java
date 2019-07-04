@@ -11,9 +11,9 @@ import qiquestoes.persistence.model.Disciplina;
 public interface DisciplinaService {
 	
 
-	Page<Disciplina> buscarPorAreaFormacaoId(Long areaFormacaoId, PageRequest pageRequest);
-	Optional<Disciplina> buscarPorId(Long id);
-	Disciplina persistir(Disciplina disciplina);
-	void remover(Long id);
+//	Page<Disciplina> buscarPorAreaFormacaoId(Long areaFormacaoId, PageRequest pageRequest);
+//	Optional<Disciplina> buscarPorId(Long id);
+//	Disciplina persistir(Disciplina disciplina);
+//	void remover(Long id);
 
 }

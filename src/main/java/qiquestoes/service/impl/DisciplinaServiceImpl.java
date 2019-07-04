@@ -11,7 +11,7 @@ import qiquestoes.persistence.model.Disciplina;
 import qiquestoes.persistence.repository.DisciplinaRepository;
 import qiquestoes.service.DisciplinaService;
 
-@Service
+//@Service
 public class DisciplinaServiceImpl  {
 	
 	//implements DisciplinaService

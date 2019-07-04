@@ -13,7 +13,7 @@ import qiquestoes.persistence.model.Assunto;
 import qiquestoes.persistence.repository.AssuntoRepository;
 import qiquestoes.service.AssuntoService;
 
-@Service
+//@Service
 public class AssuntoServiceImpl  {
 	
 	//implements AssuntoService
