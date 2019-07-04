@@ -1,4 +1,4 @@
-package qiquestoes.repository;
+package qiquestoes.persistence.repository;
 
 import org.springframework.data.repository.CrudRepository;
 

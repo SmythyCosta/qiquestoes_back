@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 import qiquestoes.dto.UserDTO;
 import qiquestoes.persistence.enums.RoleEnum;
 import qiquestoes.persistence.model.User;
-import qiquestoes.repository.UsRepository;
+import qiquestoes.persistence.repository.UsRepository;
 import qiquestoes.response.Response;
 import qiquestoes.service.UserService;
 

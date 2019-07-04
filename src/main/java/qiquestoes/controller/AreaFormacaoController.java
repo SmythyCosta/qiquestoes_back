@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import qiquestoes.persistence.model.AreaFormacao;
-import qiquestoes.repository.AreaFormacaoRepository;
+import qiquestoes.persistence.repository.AreaFormacaoRepository;
 
 @RestController
 @RequestMapping(value = "/api/area-formacao")

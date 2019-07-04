@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import qiquestoes.dto.DisciplinaDto;
 import qiquestoes.persistence.model.Disciplina;
-import qiquestoes.repository.DisciplinaRepository;
+import qiquestoes.persistence.repository.DisciplinaRepository;
 import qiquestoes.response.Response;
 import qiquestoes.service.DisciplinaService;
 

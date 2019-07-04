@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import qiquestoes.persistence.model.Pergunta;
-import qiquestoes.repository.PerguntaRepository;
+import qiquestoes.persistence.repository.PerguntaRepository;
 
 @RestController
 @RequestMapping(value = "/api/pergunta")

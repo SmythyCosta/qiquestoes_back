@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import qiquestoes.dto.AssuntoDto;
 import qiquestoes.persistence.model.Assunto;
-import qiquestoes.repository.AssuntoRepository;
+import qiquestoes.persistence.repository.AssuntoRepository;
 import qiquestoes.response.Response;
 import qiquestoes.service.AssuntoService;
 
