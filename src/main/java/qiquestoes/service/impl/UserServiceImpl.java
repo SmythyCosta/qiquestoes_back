@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Optional<User> buscarPorId(Long id) {
 		log.info("Buscando um user pelo ID {}", id);
-		return Optional.ofNullable(this.userRepository.findOne(id));
+		return this.userRepository.findById(id);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void remover(Long id) {
 		log.info("Removendo o User ID {}", id);
-		this.userRepository.delete(id);
+		this.userRepository.deleteById(id);
 	}
 
 	@Override
