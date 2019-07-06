@@ -11,6 +11,6 @@ import qiquestoes.persistence.model.Disciplina;
 @RequestMapping(value = "/api/disciplina")
 @CrossOrigin(origins = "*")
 @Api()
-public class DisciplinaController extends GenericRestController<Disciplina>{
+public class DisciplinaController extends GenericRestController<Disciplina> {
 
 }
