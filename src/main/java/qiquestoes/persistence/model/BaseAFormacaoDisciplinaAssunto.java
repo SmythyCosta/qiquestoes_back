@@ -12,6 +12,7 @@ import lombok.Data;
 
 @Data
 @MappedSuperclass
+@SuppressWarnings("serial")
 public abstract class BaseAFormacaoDisciplinaAssunto<ID extends Serializable> implements Serializable{
 	
 	@Id

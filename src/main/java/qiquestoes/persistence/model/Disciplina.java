@@ -26,6 +26,8 @@ import lombok.Data;
 @Table(name = "tbl_disciplina", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
 public class Disciplina extends BaseAFormacaoDisciplinaAssunto<Long> {
 
+	private static final long serialVersionUID = -7936053423990614312L;
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	private AreaFormacao areaFormacao;
 	
