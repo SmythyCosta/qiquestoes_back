@@ -30,9 +30,7 @@ public class Assunto extends BaseAFormacaoDisciplinaAssunto<Long> {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Disciplina disciplina;
 
-	@OneToMany(mappedBy = "assunto", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Pergunta> pergunta;
-	
+
 	public Assunto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -44,15 +42,6 @@ public class Assunto extends BaseAFormacaoDisciplinaAssunto<Long> {
 	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
 	}
-
-	public List<Pergunta> getPergunta() {
-		return pergunta;
-	}
-
-	public void setPergunta(List<Pergunta> pergunta) {
-		this.pergunta = pergunta;
-	}
-	
 	
 }
 
