@@ -20,7 +20,7 @@ import lombok.Data;
  *  and @Setter on all non-final fields, and @RequiredArgsConstructor!
  * */
 
-@Data
+
 @Entity
 @Table(name = "tbl_area_formacao", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
 public class AreaFormacao extends BaseAFormacaoDisciplinaAssunto<Long> {
@@ -29,5 +29,23 @@ public class AreaFormacao extends BaseAFormacaoDisciplinaAssunto<Long> {
 	
 	@OneToMany(mappedBy = "areaFormacao", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Disciplina> disciplina;
+	
+	public AreaFormacao() {
+		// TODO Auto-generated constructor stub
+	}
 
+	public List<Disciplina> getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(List<Disciplina> disciplina) {
+		this.disciplina = disciplina;
+	}
+
+	@Override
+	public String toString() {
+		return "AreaFormacao [disciplina=" + disciplina + "]";
+	}
+	
+	
 }
