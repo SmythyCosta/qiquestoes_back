@@ -21,7 +21,6 @@ import lombok.Data;
  *  and @Setter on all non-final fields, and @RequiredArgsConstructor!
  * */
 
-@Data
 @Entity
 @Table(name = "tbl_assunto", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
 public class Assunto extends BaseAFormacaoDisciplinaAssunto<Long> {
@@ -33,5 +32,27 @@ public class Assunto extends BaseAFormacaoDisciplinaAssunto<Long> {
 
 	@OneToMany(mappedBy = "assunto", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Pergunta> pergunta;
+	
+	public Assunto() {
+		// TODO Auto-generated constructor stub
+	}
 
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
+	}
+
+	public List<Pergunta> getPergunta() {
+		return pergunta;
+	}
+
+	public void setPergunta(List<Pergunta> pergunta) {
+		this.pergunta = pergunta;
+	}
+	
+	
 }
+
