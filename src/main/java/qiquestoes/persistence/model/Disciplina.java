@@ -10,14 +10,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/*
- * https://projectlombok.org/features/all
- * 
- * @Data
- *	All together now: A shortcut for @ToString, @EqualsAndHashCode, @Getter on all fields, 
- *  and @Setter on all non-final fields, and @RequiredArgsConstructor!
- * */
 @Entity
 @Table(name = "tbl_disciplina", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
 public class Disciplina extends BaseAFormacaoDisciplinaAssunto<Long> {
@@ -25,11 +20,9 @@ public class Disciplina extends BaseAFormacaoDisciplinaAssunto<Long> {
 	private static final long serialVersionUID = -7936053423990614312L;
 
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JsonBackReference
 	private AreaFormacao areaFormacao;
 	
-	@OneToMany(mappedBy = "disciplina", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Assunto> assunto;
-
 	public Disciplina() {
 		// TODO Auto-generated constructor stub
 	}
@@ -42,17 +35,9 @@ public class Disciplina extends BaseAFormacaoDisciplinaAssunto<Long> {
 		this.areaFormacao = areaFormacao;
 	}
 
-	public List<Assunto> getAssunto() {
-		return assunto;
-	}
-
-	public void setAssunto(List<Assunto> assunto) {
-		this.assunto = assunto;
-	}
-
 	@Override
 	public String toString() {
-		return "Disciplina [areaFormacao=" + areaFormacao + ", assunto=" + assunto + "]";
+		return "Disciplina [areaFormacao=" + areaFormacao + "]";
 	}
 	
 	
