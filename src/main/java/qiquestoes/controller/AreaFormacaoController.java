@@ -20,9 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import qiquestoes.persistence.model.AreaFormacao;
 import qiquestoes.persistence.repository.AreaFormacaoRepository;
 
-@RestController
-@RequestMapping(value = "/api/area-formacao")
-@CrossOrigin(origins = "*")
 public class AreaFormacaoController {
 
 //	@Autowired

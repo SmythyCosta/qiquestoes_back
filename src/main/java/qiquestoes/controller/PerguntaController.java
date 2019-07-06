@@ -20,7 +20,7 @@ import qiquestoes.persistence.repository.PerguntaRepository;
 @CrossOrigin(origins = "*")
 public class PerguntaController {
 	
-	@Autowired
-	PerguntaRepository r;
+//	@Autowired
+//	PerguntaRepository r;
 
 }
