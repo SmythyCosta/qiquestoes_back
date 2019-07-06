@@ -25,6 +25,11 @@ import lombok.Data;
 @Table(name = "tbl_area_formacao", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
 public class AreaFormacao extends BaseAFormacaoDisciplinaAssunto<Long> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4363125340287518187L;
+	
 	@OneToMany(mappedBy = "areaFormacao", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Disciplina> disciplina;
 
