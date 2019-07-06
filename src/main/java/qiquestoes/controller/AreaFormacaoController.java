@@ -23,7 +23,7 @@ import qiquestoes.persistence.repository.AreaFormacaoRepository;
 @RestController
 @RequestMapping(value="/api/area-formacao")
 @CrossOrigin(origins = "*")
-@Api(value="API REST AreaFormacao")
+@Api()
 public class AreaFormacaoController {
 
 	@Autowired

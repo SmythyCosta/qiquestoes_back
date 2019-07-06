@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value="/api/users")
 @CrossOrigin(origins = "*")
-@Api(value="API REST User")
+@Api()
 public class UserController {	
 	
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
