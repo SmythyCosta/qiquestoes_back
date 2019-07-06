@@ -30,11 +30,10 @@ public class AreaFormacaoController {
 	private AreaFormacaoRepository r;
 
 	@GetMapping()
-	public List listarTodos() {
+	public List<AreaFormacao> listarTodos() {
 		return r.findAll();
 	}
 	
-
 	@GetMapping(value = { "/{id}" })
 	public Optional<AreaFormacao> encontrarPorId(@PathVariable long id) {
 		return r.findById(id);
