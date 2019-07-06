@@ -6,7 +6,6 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,39 +16,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import qiquestoes.persistence.model.AreaFormacao;
 import qiquestoes.persistence.repository.AreaFormacaoRepository;
 
+@RestController
+@RequestMapping(value="/api/area-formacao")
+@CrossOrigin(origins = "*")
+@Api(value="API REST AreaFormacao")
 public class AreaFormacaoController {
 
-//	@Autowired
-//	private AreaFormacaoRepository r;
-//
-//	@GetMapping
-//	public List findAll() {
-//		return r.findAll();
-//	}
-//	
-//
-//	@GetMapping(value = { "/{id}" })
-//	public AreaFormacao findById(@PathVariable long id) {
-//		return r.findById(id);
-//	}
-//
-//	@PostMapping
-//	public AreaFormacao create(@RequestBody AreaFormacao obj) {
-//		return r.save(obj);
-//	}
-//	
-//	@PutMapping(value = "/{id}")
-//	public AreaFormacao atualiza(@RequestBody @Valid AreaFormacao obj) {
-//		return r.save(obj);
-//	}
-//	
-//	@DeleteMapping(value = "/{id}")
-//	public void deletar(@PathVariable long id) {
-//		r.delete(id);
-//	}
+	@Autowired
+	private AreaFormacaoRepository r;
 
+	@GetMapping()
+	public List listarTodos() {
+		return r.findAll();
+	}
 	
+
+	@GetMapping(value = { "/{id}" })
+	public Optional<AreaFormacao> encontrarPorId(@PathVariable long id) {
+		return r.findById(id);
+	}
+
+	@PostMapping()
+	public AreaFormacao criarNovo(@RequestBody AreaFormacao obj) {
+		return r.save(obj);
+	}
+	
+	@PutMapping(value = "/{id}")
+	public AreaFormacao atualiza(@RequestBody @Valid AreaFormacao obj) {
+		return r.save(obj);
+	}
+	
+	@DeleteMapping(value = "/{id}")
+	public void deletar(@PathVariable long id) {
+		r.deleteById(id);
+	}
+
 }
