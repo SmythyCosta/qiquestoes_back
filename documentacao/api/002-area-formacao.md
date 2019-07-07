@@ -14,8 +14,7 @@ PUT http://localhost:8080/api/area-formacao/2
 
 {
     "id": 2,
-    "nome": "Tecnologia da Informação #202",
-    "disciplina": null
+    "nome": "Tecnologia da Informação #202"
 }
 
 DELETE http://localhost:8080/api/area-formacao/11
