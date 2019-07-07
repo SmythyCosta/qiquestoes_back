@@ -11,6 +11,6 @@ import qiquestoes.persistence.model.PerguntaOpcaoResposta;
 @RequestMapping(value = "/api/pergunta-opcao-resposta")
 @CrossOrigin(origins = "*")
 @Api()
-public class PerguntaOpcaoController extends GenericRestController<PerguntaOpcaoResposta> {
+public class PerguntaOpcaoRespostaController extends GenericRestController<PerguntaOpcaoResposta> {
 
 }
