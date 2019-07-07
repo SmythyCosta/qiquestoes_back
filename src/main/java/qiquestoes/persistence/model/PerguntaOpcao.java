@@ -30,7 +30,9 @@ public class PerguntaOpcao implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "descricao", nullable = false, columnDefinition = "TEXT")
+	@Lob
+	@Column(name = "descricao", columnDefinition = "TEXT")
+	//@Column(name = "descricao", nullable = false)
 	private String descricao;
 
 	@Column(name = "resposta_correta", nullable = false)
