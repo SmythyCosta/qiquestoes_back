@@ -7,15 +7,20 @@ GET http://localhost:8080/api/assunto/1
 POST http://localhost:8080/api/assunto
 
 {
-    "nome": "Tecnologia da Informação"
+    "nome": "Protocolos da camada de Aplicação",
+    "disciplina": {
+        "id": 56
+    }
 }
 
-PUT http://localhost:8080/api/assunto/2
+PUT http://localhost:8080/api/assunto/70
 
 {
-    "id": 2,
-    "nome": "Tecnologia da Informação #202",
-    "disciplina": null
+	"id": 70,
+    "nome": "Protocolos da camada de Aplicação",
+    "disciplina": {
+        "id": 56
+    }
 }
 
-DELETE http://localhost:8080/api/assunto/11
+DELETE http://localhost:8080/api/assunto/70
