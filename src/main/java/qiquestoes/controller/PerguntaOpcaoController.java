@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 import qiquestoes.persistence.model.PerguntaOpcao;
 
 @RestController
-@RequestMapping(value = "/api/pergunta")
+@RequestMapping(value = "/api/pergunta-opcao-resposta")
 @CrossOrigin(origins = "*")
 @Api()
 public class PerguntaOpcaoController extends GenericRestController<PerguntaOpcao> {
