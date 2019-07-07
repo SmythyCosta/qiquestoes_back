@@ -14,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -27,7 +26,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Table(name = "tbl_pergunta", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
+@Table(name = "tbl_pergunta")
 public class Pergunta implements Serializable {
 
 	private static final long serialVersionUID = -7634247679759632411L;
@@ -35,25 +34,25 @@ public class Pergunta implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@Column(name = "nome", nullable = false)
-	private String nome;
-	
+
+	@Column(name = "descricao", nullable = false, columnDefinition = "TEXT")
+	private String descricao;
+
 	@Column(name = "data_criacao", nullable = false)
 	private Date dataCriacao;
-	
+
 	@Column(name = "data_atualizacao", nullable = false)
 	private Date dataAtualizacao;
-	
+
 	@Column(name = "ativo", nullable = false)
 	private Boolean ativo;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonBackReference
 	private Assunto assunto;
-	
+
 	@OneToMany(mappedBy = "pergunta", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonManagedReference
 	private List<PerguntaOpcao> perguntaOpcao;
-	
+
 }
