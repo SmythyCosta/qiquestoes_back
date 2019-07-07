@@ -1,8 +1,8 @@
 package qiquestoes.persistence.dao;
 
-import qiquestoes.persistence.model.PerguntaOpcao;
+import qiquestoes.persistence.model.PerguntaOpcaoResposta;
 
 
-public interface PerguntaOpcaoDao extends BaseDao<PerguntaOpcao> {
+public interface PerguntaOpcaoDao extends BaseDao<PerguntaOpcaoResposta> {
 
 }

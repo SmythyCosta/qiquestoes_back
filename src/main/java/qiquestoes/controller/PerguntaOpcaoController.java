@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
-import qiquestoes.persistence.model.PerguntaOpcao;
+import qiquestoes.persistence.model.PerguntaOpcaoResposta;
 
 @RestController
 @RequestMapping(value = "/api/pergunta-opcao-resposta")
 @CrossOrigin(origins = "*")
 @Api()
-public class PerguntaOpcaoController extends GenericRestController<PerguntaOpcao> {
+public class PerguntaOpcaoController extends GenericRestController<PerguntaOpcaoResposta> {
 
 }

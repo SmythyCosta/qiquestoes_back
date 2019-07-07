@@ -22,8 +22,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Table(name = "tbl_pergunta_opcao")
-public class PerguntaOpcao implements Serializable {
+@Table(name = "tbl_pergunta_opcao_resposta")
+public class PerguntaOpcaoResposta implements Serializable {
 
 	private static final long serialVersionUID = -8615751844136722809L;
 
@@ -33,7 +33,6 @@ public class PerguntaOpcao implements Serializable {
 
 	@Lob
 	@Column(name = "descricao", columnDefinition = "TEXT")
-	//@Column(name = "descricao", nullable = false)
 	private String descricao;
 
 	@Column(name = "resposta_correta", nullable = false)

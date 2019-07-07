@@ -38,7 +38,6 @@ public class Pergunta implements Serializable {
 	
 	@Lob
 	@Column(name = "descricao", columnDefinition = "TEXT")
-	//@Column(name = "descricao", nullable = false)
 	private String descricao;
 
 	@Column(name = "data_criacao", nullable = false)
@@ -56,6 +55,6 @@ public class Pergunta implements Serializable {
 
 	@OneToMany(mappedBy = "pergunta", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonManagedReference
-	private List<PerguntaOpcao> perguntaOpcao;
+	private List<PerguntaOpcaoResposta> perguntaOpcaoResposta;
 
 }
