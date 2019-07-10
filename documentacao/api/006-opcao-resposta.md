@@ -26,3 +26,6 @@ PUT http://localhost:8080/api/pergunta-opcao-resposta/83
 }
 
 DELETE http://localhost:8080/api/pergunta-opcao-resposta/83
+
+GET http://localhost:8080/api/pergunta-opcao-resposta/pergunta/{perguntaId}
+
