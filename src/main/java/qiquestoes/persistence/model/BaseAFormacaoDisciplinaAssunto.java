@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.validator.constraints.Length;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +25,7 @@ public abstract class BaseAFormacaoDisciplinaAssunto<ID extends Serializable> im
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private ID id;
 
+	@Length(min = 3, max = 200, message = "Nome deve conter entre 3 e 200 caracteres.")
 	@Column(name = "nome", nullable = false)
 	private String nome;
 
