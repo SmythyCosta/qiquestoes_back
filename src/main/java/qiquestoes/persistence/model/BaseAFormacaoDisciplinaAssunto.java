@@ -24,7 +24,7 @@ public abstract class BaseAFormacaoDisciplinaAssunto<ID extends Serializable> im
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private ID id;
-
+	
 	@Length(min = 3, max = 200, message = "Nome deve conter entre 3 e 200 caracteres.")
 	@Column(name = "nome", nullable = false)
 	private String nome;

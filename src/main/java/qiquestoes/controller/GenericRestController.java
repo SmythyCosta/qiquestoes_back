@@ -1,5 +1,7 @@
 package qiquestoes.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import qiquestoes.persistence.dao.BaseDao;
-import qiquestoes.util.ResourceNotFoundException;
 
 public class GenericRestController<T> {
 
@@ -35,27 +36,36 @@ public class GenericRestController<T> {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> update(@PathVariable(value = "id") long id,@Valid @RequestBody T entity) { 
-		verifyIfExistsT(id);
+		Optional<T> t = dao.findById(id);
+		if (!t.isPresent()) {
+			return ResponseEntity.badRequest().body("Not found for ID: "+id+"");
+		}
 		dao.save(entity); 
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> delete(@PathVariable(value = "id") long id) { 
-		verifyIfExistsT(id);
+		
+		Optional<T> t = dao.findById(id);
+		if (!t.isPresent()) {
+			return ResponseEntity.badRequest().body("Not found for ID: "+id+"");
+		}
+		
 		dao.deleteById(id); 
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> get(@PathVariable(value = "id") long id) { 
-		verifyIfExistsT(id);
-		T obj = (T) dao.findById(id); 
-		return new ResponseEntity<>(obj, HttpStatus.OK);
+	
+		Optional<T> t = dao.findById(id);
+		if (!t.isPresent()) {
+			return ResponseEntity.badRequest().body("Not found for ID: "+id+"");
+		}
+	
+		return new ResponseEntity<>(t, HttpStatus.OK);
 	}
 	
-	private void verifyIfExistsT(Long id){
-        if (dao.findById(id) == null)
-            throw new ResourceNotFoundException("not found for ID: "+id);
-    }
+	
 }
