@@ -38,7 +38,7 @@ public class GenericRestController<T> {
 	public ResponseEntity<?> update(@PathVariable(value = "id") long id,@Valid @RequestBody T entity) { 
 		Optional<T> t = dao.findById(id);
 		if (!t.isPresent()) {
-			return ResponseEntity.badRequest().body("Not found for ID: "+id+"");
+			return new ResponseEntity<>("Not found for ID: "+id+"", HttpStatus.BAD_REQUEST);
 		}
 		dao.save(entity); 
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -49,7 +49,7 @@ public class GenericRestController<T> {
 		
 		Optional<T> t = dao.findById(id);
 		if (!t.isPresent()) {
-			return ResponseEntity.badRequest().body("Not found for ID: "+id+"");
+			return new ResponseEntity<>("Not found for ID: "+id+"", HttpStatus.BAD_REQUEST);
 		}
 		
 		dao.deleteById(id); 
@@ -61,7 +61,7 @@ public class GenericRestController<T> {
 	
 		Optional<T> t = dao.findById(id);
 		if (!t.isPresent()) {
-			return ResponseEntity.badRequest().body("Not found for ID: "+id+"");
+			return new ResponseEntity<>("Not found for ID: "+id+"", HttpStatus.BAD_REQUEST);
 		}
 	
 		return new ResponseEntity<>(t, HttpStatus.OK);
