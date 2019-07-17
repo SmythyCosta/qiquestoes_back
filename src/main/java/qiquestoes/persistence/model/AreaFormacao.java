@@ -9,6 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -25,7 +26,8 @@ public class AreaFormacao extends BaseAFormacaoDisciplinaAssunto<Long> {
 	private static final long serialVersionUID = 4363125340287518187L;
 
 	@OneToMany(mappedBy = "areaFormacao", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@JsonIgnore
+	//@JsonManagedReference
 	private List<Disciplina> disciplina;
 
 }
