@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.ApiOperation;
+import qiquestoes.controller.message.request.LoginForm;
+import qiquestoes.controller.message.response.JwtResponse;
 import qiquestoes.persistence.repository.RoleRepository;
 import qiquestoes.persistence.repository.UserRepository;
 import qiquestoes.security.jwt.JwtProvider;
@@ -42,12 +44,12 @@ public class AuthController {
 
     @ApiOperation(value="Efetua login na aplicação")
     @PostMapping("/login")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginForm loginRequest) {
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginForm loginForm) {
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsername(),
-                        loginRequest.getPassword()
+                		loginForm.getUsername(),
+                		loginForm.getPassword()
                 )
         );
 
