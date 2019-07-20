@@ -50,21 +50,21 @@ public class User implements Serializable{
     private Long id;
 	
 	@NotEmpty
-	@Size(min=6, max = 100)
+	@Size(min=3, max = 100)
     private String name;
 
 	@NotEmpty
-	@Size(min=6, max = 100)
+	@Size(min=3, max = 100)
     private String username;
 
     @NaturalId
     @NotEmpty
-    @Size(min=6, max = 100)
+    @Size(min=5, max = 100)
     @Email
     private String email;
 
     @NotEmpty
-    @Size(min=6, max = 100)
+    @Size(min=5, max = 100)
     private String password;
     
     @ManyToMany(fetch = FetchType.LAZY)
