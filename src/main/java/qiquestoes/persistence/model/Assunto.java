@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Getter
 @Table(name = "tbl_assunto", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
-public class Assunto extends BaseAFormacaoDisciplinaAssunto<Long> {
+public class Assunto extends BaseModel<Long> {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonBackReference

@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @MappedSuperclass
 @SuppressWarnings("serial")
-public abstract class BaseAFormacaoDisciplinaAssunto<ID extends Serializable> implements Serializable {
+public abstract class BaseModel<ID extends Serializable> implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

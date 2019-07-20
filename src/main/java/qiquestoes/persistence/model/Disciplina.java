@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Getter
 @Table(name = "tbl_disciplina", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
-public class Disciplina extends BaseAFormacaoDisciplinaAssunto<Long> {
+public class Disciplina extends BaseModel<Long> {
 
 	private static final long serialVersionUID = -7936053423990614312L;
 
