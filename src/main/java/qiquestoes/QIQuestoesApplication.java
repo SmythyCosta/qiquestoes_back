@@ -32,61 +32,61 @@ public class QIQuestoesApplication {
 		SpringApplication.run(QIQuestoesApplication.class, args);
 	}
 	
-	@Bean
-	public CommandLineRunner commandLineRunner() {
-		return args -> {
-			
-			/*
-			 * 
-			 * *******************
-			 * Role Save H2
-			 * 
-			 * *******************
-			 * 
-			 * */
-			// Set Role
-			Role role = new Role();
-			role.setName(RoleNameEnum.ROLE_ADMIN);
-			
-			Role role1 = new Role();
-			role1.setName(RoleNameEnum.ROLE_USER);
-			
-			// Persiste Role
-			this.roleRepository.save(role);
-			this.roleRepository.save(role1);			
-			
-			/*
-			 * 
-			 * *******************
-			 * User Save H2
-			 * 
-			 * *******************
-			 * 
-			 * */
-			User user = new User();
-			user.setName("Admin2 System");
-			user.setUsername("admin2");
-			user.setEmail("admin2@email.com");
-			user.setPassword(encoder.encode("123456"));	
-			Set<Role> roles = new HashSet<>();
-			roles.add(role);
-			user.setRoles(roles);
-			
-			User user1 = new User();
-			user1.setName("Common User2");
-			user1.setUsername("user2");
-			user1.setEmail("user2@email.com");
-			user1.setPassword(encoder.encode("123456"));	
-			Set<Role> roles1 = new HashSet<>();
-			roles1.add(role1);
-			user1.setRoles(roles1);
-			
-			this.userRepository.save(user);
-			this.userRepository.save(user1);
-			
-			
-		};
-
-	}
+//	@Bean
+//	public CommandLineRunner commandLineRunner() {
+//		return args -> {
+//			
+//			/*
+//			 * 
+//			 * *******************
+//			 * Role Save H2
+//			 * 
+//			 * *******************
+//			 * 
+//			 * */
+//			// Set Role
+//			Role role = new Role();
+//			role.setName(RoleNameEnum.ROLE_ADMIN);
+//			
+//			Role role1 = new Role();
+//			role1.setName(RoleNameEnum.ROLE_USER);
+//			
+//			// Persiste Role
+//			this.roleRepository.save(role);
+//			this.roleRepository.save(role1);			
+//			
+//			/*
+//			 * 
+//			 * *******************
+//			 * User Save H2
+//			 * 
+//			 * *******************
+//			 * 
+//			 * */
+//			User user = new User();
+//			user.setName("Admin2 System");
+//			user.setUsername("admin2");
+//			user.setEmail("admin2@email.com");
+//			user.setPassword(encoder.encode("123456"));	
+//			Set<Role> roles = new HashSet<>();
+//			roles.add(role);
+//			user.setRoles(roles);
+//			
+//			User user1 = new User();
+//			user1.setName("Common User2");
+//			user1.setUsername("user2");
+//			user1.setEmail("user2@email.com");
+//			user1.setPassword(encoder.encode("123456"));	
+//			Set<Role> roles1 = new HashSet<>();
+//			roles1.add(role1);
+//			user1.setRoles(roles1);
+//			
+//			this.userRepository.save(user);
+//			this.userRepository.save(user1);
+//			
+//			
+//		};
+//
+//	}
 	
 }
