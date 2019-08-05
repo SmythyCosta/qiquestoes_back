@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -22,14 +23,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Getter
 @Table(name = "tbl_assunto", uniqueConstraints = { @UniqueConstraint(columnNames = { "nome" }) })
-public class Assunto extends BaseAFormacaoDisciplinaAssunto<Long> {
+public class Assunto extends BaseModel<Long> {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonBackReference
 	private Disciplina disciplina;
 	
 	@OneToMany(mappedBy = "assunto", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@JsonIgnore
+	//@JsonManagedReference
 	private List<Pergunta> pergunta;
 
 }

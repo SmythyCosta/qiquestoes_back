@@ -20,19 +20,4 @@ import qiquestoes.persistence.model.PerguntaOpcaoResposta;
 @Api()
 public class PerguntaOpcaoRespostaController extends GenericRestController<PerguntaOpcaoResposta> {
 	
-	@Autowired
-	PerguntaOpcaoDao d;
-	
-	/**
-	 * Retorna a listagem de opcoes de respostas por perguntaId.
-	 * 
-	 * @param perguntaId
-	 * @return List<PerguntaOpcaoResposta>
-	 */
-	@GetMapping(value = "/pergunta/{perguntaId}")
-	public List<PerguntaOpcaoResposta> listarPorPerguntaId(@PathVariable("perguntaId") Long perguntaId) {
-				
-		return d.findByPerguntaId(perguntaId);
-	}
-	
 }
