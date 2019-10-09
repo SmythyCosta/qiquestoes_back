@@ -1,4 +1,4 @@
-package qiquestoes.controller.message.response;
+package qiquestoes.controller.dto.response;
 
 public class JwtResponse {
     

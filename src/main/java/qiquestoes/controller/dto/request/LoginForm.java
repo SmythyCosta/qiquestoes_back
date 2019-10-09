@@ -1,4 +1,4 @@
-package qiquestoes.controller.message.request;
+package qiquestoes.controller.dto.request;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
