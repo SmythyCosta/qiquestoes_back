@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import qiquestoes.persistence.model.AreaFormacao;
-import qiquestoes.persistence.repository.AreaFormacaoRepository;
+import qiquestoes.persistence.repository.IAreaFormacaoRepository;
 
 @RestController
 @RequestMapping(value="/api/area-formacao")
@@ -27,7 +27,7 @@ import qiquestoes.persistence.repository.AreaFormacaoRepository;
 public class AreaFormacaoController {
 
 	@Autowired
-	private AreaFormacaoRepository r;
+	private IAreaFormacaoRepository r;
 
 	@GetMapping()
 	public List<AreaFormacao> listarTodos() {

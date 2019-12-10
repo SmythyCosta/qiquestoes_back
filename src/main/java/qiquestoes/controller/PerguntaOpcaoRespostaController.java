@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
-import qiquestoes.persistence.dao.PerguntaOpcaoDao;
 import qiquestoes.persistence.model.PerguntaOpcaoResposta;
+import qiquestoes.persistence.repository.IPerguntaOpcaoDaoRepository;
 
 @RestController
 @RequestMapping(value = "/api/pergunta-opcao-resposta")

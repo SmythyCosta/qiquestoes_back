@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import qiquestoes.persistence.dao.BaseDao;
+import qiquestoes.persistence.repository.IBaseCustomRepository;
 
 public class GenericRestController<T> {
 
 	@Autowired
-	private BaseDao<T> dao;
+	private IBaseCustomRepository<T> dao;
 
 	/*
 	 * Documentacao para a paginação

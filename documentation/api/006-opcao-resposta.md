@@ -1,10 +1,10 @@
 
 
-GET http://localhost:8080/api/pergunta-opcao-resposta
+GET http://localhost:8090/api/pergunta-opcao-resposta
 
-GET http://localhost:8080/api/pergunta-opcao-resposta/1
+GET http://localhost:8090/api/pergunta-opcao-resposta/1
 
-POST http://localhost:8080/api/pergunta-opcao-resposta
+POST http://localhost:8090/api/pergunta-opcao-resposta
 
 {
 	"descricao": "Teste de descricao 222",
@@ -14,7 +14,7 @@ POST http://localhost:8080/api/pergunta-opcao-resposta
 	}
 }
 
-PUT http://localhost:8080/api/pergunta-opcao-resposta/83
+PUT http://localhost:8090/api/pergunta-opcao-resposta/83
 
 {
 	"id": 83,
@@ -25,7 +25,7 @@ PUT http://localhost:8080/api/pergunta-opcao-resposta/83
 	}
 }
 
-DELETE http://localhost:8080/api/pergunta-opcao-resposta/83
+DELETE http://localhost:8090/api/pergunta-opcao-resposta/83
 
-GET http://localhost:8080/api/pergunta-opcao-resposta/pergunta/{perguntaId}
+GET http://localhost:8090/api/pergunta-opcao-resposta/pergunta/{perguntaId}
 

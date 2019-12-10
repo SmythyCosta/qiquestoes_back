@@ -13,17 +13,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import qiquestoes.persistence.enums.RoleNameEnum;
 import qiquestoes.persistence.model.Role;
 import qiquestoes.persistence.model.User;
-import qiquestoes.persistence.repository.RoleRepository;
-import qiquestoes.persistence.repository.UserRepository;
+import qiquestoes.persistence.repository.IRoleRepository;
+import qiquestoes.persistence.repository.IUserRepository;
 
 @SpringBootApplication
 public class QIQuestoesApplication {
 	
 	@Autowired
-	private RoleRepository roleRepository;
+	private IRoleRepository roleRepository;
 	
 	@Autowired
-	private UserRepository userRepository;
+	private IUserRepository userRepository;
 	
 	@Autowired
     PasswordEncoder encoder;

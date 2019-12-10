@@ -19,7 +19,7 @@ import qiquestoes.persistence.model.Disciplina;
 @NamedQueries({
 		@NamedQuery(name = "DisciplinaRepository.findByAreaFormacaoId", 
 				query = "SELECT disc FROM disciplina disc WHERE disc.areaFormacao.id = :areaFormacaoId") })
-public interface DisciplinaRepository extends JpaRepository<Disciplina, Long>{
+public interface IDisciplinaRepository extends JpaRepository<Disciplina, Long>{
 	
 	List<Disciplina> findByAreaFormacaoId(@Param("areaFormacaoId") Long areaFormacaoId);
 	Page<Disciplina> findByAreaFormacaoId(@Param("areaFormacaoId") Long areaFormacaoId, Pageable pageable);

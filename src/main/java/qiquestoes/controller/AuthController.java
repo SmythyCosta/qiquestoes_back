@@ -28,8 +28,8 @@ import qiquestoes.exceptions.AppException;
 import qiquestoes.persistence.enums.RoleNameEnum;
 import qiquestoes.persistence.model.Role;
 import qiquestoes.persistence.model.User;
-import qiquestoes.persistence.repository.RoleRepository;
-import qiquestoes.persistence.repository.UserRepository;
+import qiquestoes.persistence.repository.IRoleRepository;
+import qiquestoes.persistence.repository.IUserRepository;
 import qiquestoes.security.jwt.JwtProvider;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -41,10 +41,10 @@ public class AuthController {
     AuthenticationManager authenticationManager;
 
     @Autowired
-    UserRepository userRepository;
+    IUserRepository userRepository;
 
     @Autowired
-    RoleRepository roleRepository;
+    IRoleRepository roleRepository;
 
     @Autowired
     PasswordEncoder encoder;

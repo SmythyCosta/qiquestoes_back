@@ -1,4 +1,4 @@
-package qiquestoes.persistence.dao;
+package qiquestoes.persistence.repository;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import qiquestoes.persistence.model.PerguntaOpcaoResposta;
 @NamedQueries({
 	@NamedQuery(name = "PerguntaOpcaoDao.findByPerguntaId", 
 			query = "SELECT op FROM PerguntaOpcaoResposta op WHERE op.pergunta.id = :perguntaId") })
-public interface PerguntaOpcaoDao extends BaseDao<PerguntaOpcaoResposta> {
+public interface IPerguntaOpcaoDaoRepository extends IBaseCustomRepository<PerguntaOpcaoResposta> {
 
 	List<PerguntaOpcaoResposta> findByPerguntaId(@Param("perguntaId") Long perguntaId);
 

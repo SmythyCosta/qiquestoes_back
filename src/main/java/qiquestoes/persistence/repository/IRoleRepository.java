@@ -9,7 +9,7 @@ import qiquestoes.persistence.enums.RoleNameEnum;
 import qiquestoes.persistence.model.Role;
 
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Long> {
+public interface IRoleRepository extends JpaRepository<Role, Long> {
     
 	Optional<Role> findByName(RoleNameEnum roleName);
 }

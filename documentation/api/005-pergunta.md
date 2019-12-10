@@ -1,10 +1,10 @@
 
 
-GET http://localhost:8080/api/pergunta
+GET http://localhost:8090/api/pergunta
 
-GET http://localhost:8080/api/pergunta/1
+GET http://localhost:8090/api/pergunta/1
 
-POST http://localhost:8080/api/pergunta
+POST http://localhost:8090/api/pergunta
 
 {
  	"ativo": true,
@@ -16,7 +16,7 @@ POST http://localhost:8080/api/pergunta
   	}
 }
 
-PUT http://localhost:8080/api/pergunta/79
+PUT http://localhost:8090/api/pergunta/79
 
 {
 	"id": 79,
@@ -29,4 +29,4 @@ PUT http://localhost:8080/api/pergunta/79
   	}
 }
 
-DELETE http://localhost:8080/api/pergunta/70
+DELETE http://localhost:8090/api/pergunta/70

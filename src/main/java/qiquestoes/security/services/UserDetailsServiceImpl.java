@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import qiquestoes.persistence.model.User;
-import qiquestoes.persistence.repository.UserRepository;
+import qiquestoes.persistence.repository.IUserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    UserRepository userRepository;
+    IUserRepository userRepository;
 
     @Override
     @Transactional

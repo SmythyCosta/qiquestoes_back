@@ -1,4 +1,4 @@
-package qiquestoes.persistence.dao;
+package qiquestoes.persistence.repository;
 
 import java.io.Serializable;
 
@@ -11,6 +11,6 @@ import org.springframework.data.repository.NoRepositoryBean;
  * 
  * */
 @NoRepositoryBean
-public interface BaseDao<T> extends JpaRepository<T, Serializable> {
+public interface IBaseCustomRepository<T> extends JpaRepository<T, Serializable> {
 
 }

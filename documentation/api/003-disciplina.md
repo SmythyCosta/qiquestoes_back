@@ -1,10 +1,10 @@
 
 
-GET http://localhost:8080/api/disciplina
+GET http://localhost:8090/api/disciplina
 
-GET http://localhost:8080/api/disciplina/1
+GET http://localhost:8090/api/disciplina/1
 
-POST http://localhost:8080/api/disciplina
+POST http://localhost:8090/api/disciplina
 
 {
     "nome": "Matematica 2",
@@ -13,7 +13,7 @@ POST http://localhost:8080/api/disciplina
 	}
 }
 
-PUT http://localhost:8080/api/disciplina/42
+PUT http://localhost:8090/api/disciplina/42
 
 {
 	"id": 42,
@@ -23,4 +23,4 @@ PUT http://localhost:8080/api/disciplina/42
 	}
 } 
 
-DELETE http://localhost:8080/api/disciplina/42
+DELETE http://localhost:8090/api/disciplina/42
