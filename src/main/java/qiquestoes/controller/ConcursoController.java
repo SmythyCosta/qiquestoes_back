@@ -9,7 +9,7 @@ import qiquestoes.persistence.model.Assunto;
 import qiquestoes.persistence.model.Concurso;
 
 @RestController
-@RequestMapping(value = "/api/assunto")
+@RequestMapping(value = "/api/concurso")
 @CrossOrigin(origins = "*")
 @Api()
 public class ConcursoController extends GenericRestController<Concurso> {
