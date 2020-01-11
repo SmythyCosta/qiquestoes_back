@@ -12,6 +12,11 @@ POST http://localhost:8090/api/auth/login
 }
 
 
+{
+    "username": "admin",
+    "password": "123456"
+}
+
 ## Faz o cadastro de novos usuarios 
 
 POST http://localhost:8090/api/auth/register
