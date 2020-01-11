@@ -41,7 +41,6 @@ public class Concurso extends BaseModel<Long> {
 	private Date dataConcurso;
 	
 	@Column(name = "UF", nullable = true)
-	@Length(max = 02)
 	private String UF;
 	
 	@OneToMany(mappedBy = "concurso", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
