@@ -25,19 +25,19 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "tbl_concurso", uniqueConstraints = { 
+@Table(name = "tbl_prova", uniqueConstraints = { 
 		@UniqueConstraint(columnNames = { "nome" }) })
 public class Prova extends BaseModel<Long> {
-	
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 2697091001665057435L;
+	private static final long serialVersionUID = -1811771544358731208L;
 
 	@Column(name = "data_aplicacao_prova", nullable = false)
 	private Date dataAplicacaoProva;
 	
-	@OneToMany(mappedBy = "concurso", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "prova", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
 	//@JsonManagedReference
 	private List<Pergunta> pergunta;
