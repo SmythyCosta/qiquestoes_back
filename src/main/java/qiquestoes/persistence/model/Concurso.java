@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.validator.constraints.Length;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -37,6 +39,10 @@ public class Concurso extends BaseModel<Long> {
 
 	@Column(name = "data_concurso", nullable = false)
 	private Date dataConcurso;
+	
+	@Column(name = "UF", nullable = true)
+	@Length(max = 02)
+	private String UF;
 	
 	@OneToMany(mappedBy = "concurso", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
