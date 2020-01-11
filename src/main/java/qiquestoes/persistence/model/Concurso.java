@@ -41,7 +41,7 @@ public class Concurso extends BaseModel<Long> {
 	@OneToMany(mappedBy = "concurso", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
 	//@JsonManagedReference
-	private List<Pergunta> pergunta;
+	private List<Prova> prova;
 
 
 }

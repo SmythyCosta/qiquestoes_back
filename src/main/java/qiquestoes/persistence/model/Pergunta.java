@@ -56,7 +56,7 @@ public class Pergunta implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonBackReference
-	private Concurso concurso;
+	private Prova prova;
 
 	@OneToMany(mappedBy = "pergunta", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
