@@ -35,13 +35,12 @@ public class Concurso extends BaseModel<Long> {
 	 */
 	private static final long serialVersionUID = 2697091001665057435L;
 
-	@Column(name = "data_aplicacao_prova", nullable = false)
-	private Date dataAplicacaoProva;
+	@Column(name = "data_concurso", nullable = false)
+	private Date dataConcurso;
 	
 	@OneToMany(mappedBy = "concurso", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
 	//@JsonManagedReference
 	private List<Prova> prova;
-
 
 }
